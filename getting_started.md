@@ -421,5 +421,5 @@ Link
 [link-pico_sdk]: https://github.com/raspberrypi/pico-sdk
 [link-pico_extras]: https://github.com/raspberrypi/pico-extras
 [link-port_iolibrary_driver]: https://github.com/Wiznet/RP2040-HAT-LWIP-C/tree/main/port/ioLibrary_Driver
-[link-port_mbedtls]: https://github.com/Wiznet/RP2040-HAT-LWIP-C/tree/main/port/lwip
+[link-port_lwip]: https://github.com/Wiznet/RP2040-HAT-LWIP-C/tree/main/port/lwip
 [link-port_timer]: https://github.com/Wiznet/RP2040-HAT-LWIP-C/tree/main/port/timer
