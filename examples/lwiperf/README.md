@@ -93,7 +93,7 @@ IP4_ADDR(&g_gateway, 192, 168, 11, 1);
 
 4. Reset your board.
 
-5. If the iPerf example works normally on Raspberry Pi Pico, W5100S-EVB-Pico or W5500-EVB-Pico, you can see the network information of Raspberry Pi Pico, W5100S-EVB-Pico or W5500-EVB-Pico and the TCP server is open.
+5. If the iPerf example works normally on Raspberry Pi Pico, W5100S-EVB-Pico or W5500-EVB-Pico, you can see the IP of Raspberry Pi Pico, W5100S-EVB-Pico or W5500-EVB-Pico and the TCP server is open.
 
 ![][link-see_network_information_of_raspberry_pi_pico_and_open_tcp_server]
 
