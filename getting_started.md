@@ -133,7 +133,7 @@ cd [user path]/RP2040-HAT-LWIP-C/libraries/pico-extras
 cd D:/RP2040/RP2040-HAT-LWIP-C/libraries/pico-extras
 
 /* Patch */
-git apply ../../patches/01_pico-extras_lwip_cmakelists.patch
+git apply --ignore-whitespace ../../patches/01_pico-extras_lwip_cmakelists.patch
 ```
 
 ```cpp
@@ -145,8 +145,8 @@ cd [user path]/RP2040-HAT-LWIP-C/libraries/pico-extras/lib/lwip
 cd D:/RP2040/RP2040-HAT-LWIP-C/libraries/pico-extras/lib/lwip
 
 /* Patch */
-git apply ../../../../patches/02_pico-extras_lwip_dns.patch
-git apply ../../../../patches/03_pico-extras_lwip_opt.patch
+git apply --ignore-whitespace ../../../../patches/02_pico-extras_lwip_dns.patch
+git apply --ignore-whitespace ../../../../patches/03_pico-extras_lwip_opt.patch
 ```
 
 4. Test
