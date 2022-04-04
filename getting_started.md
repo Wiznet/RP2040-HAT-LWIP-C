@@ -51,7 +51,7 @@ Examples are available at '**RP2040-HAT-LWIP-C/examples/**' directory. As of now
 
 - [**DHCP & DNS**][link-dhcp_dns]
 - [**Loopback**][link-loopback]
-- [**Iperf**][link-iperf]
+- [**iPerf**][link-iperf]
 
 Note that **ioLibrary_Driver**, **pico-sdk**, **pico-extras** are needed to run LwIP examples.
 
