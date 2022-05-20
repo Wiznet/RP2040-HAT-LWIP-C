@@ -11,6 +11,3 @@ index f83ea9b4..768f72ea 100644
  #else
  static u16_t dns_txid;
  #define DNS_RAND_TXID() (++dns_txid)
--- 
-2.32.0.windows.2
-

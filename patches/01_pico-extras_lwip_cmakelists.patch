@@ -11,6 +11,3 @@ index 33a4ca6..d584108 100644
 +        pico_stdlib
 +    )
  endif()
--- 
-2.32.0.windows.2
-
