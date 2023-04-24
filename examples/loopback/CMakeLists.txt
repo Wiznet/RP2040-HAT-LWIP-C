@@ -1,5 +1,5 @@
 set(TARGET_NAME w5x00_loopback)
-set(LWIP_PATH ${PICO_EXTRAS_PATH}/lib/lwip)
+set(LWIP_PATH ${PICO_SDK_PATH}/lib/lwip)
 set(TARGET_FILES    
     w5x00_loopback.c
     ${CMAKE_CURRENT_SOURCE_DIR}/tcp_echoserver/tcp_echoserver.c
@@ -13,7 +13,7 @@ target_include_directories(w5x00_loopback PUBLIC
         )
 
 # This is required to include lwipopts.h
-target_include_directories(lwip INTERFACE        
+target_include_directories(pico_lwip INTERFACE        
         ${PORT_DIR}/lwip        
         )
 
@@ -23,7 +23,6 @@ target_link_libraries(${TARGET_NAME} PRIVATE
         hardware_dma
         ETHERNET_FILES
         IOLIBRARY_FILES
-        lwip
         LWIP_FILES
         )
 

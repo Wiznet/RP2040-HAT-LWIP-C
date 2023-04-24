@@ -29,11 +29,13 @@ target_sources(LWIP_FILES PUBLIC
 target_include_directories(LWIP_FILES PUBLIC
         ${WIZNET_DIR}/Ethernet
         ${PORT_DIR}
+        ${PORT_DIR}/lwip
         )
 
-target_link_libraries(LWIP_FILES PRIVATE
+target_link_libraries(LWIP_FILES PUBLIC
         ETHERNET_FILES
-        lwip
+        pico_lwip
+        pico_lwip_nosys
         )
 
 # timer

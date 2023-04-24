@@ -1,5 +1,5 @@
 set(TARGET_NAME w5x00_lwiperf)
-set(LWIP_PATH ${PICO_EXTRAS_PATH}/lib/lwip)
+set(LWIP_PATH ${PICO_SDK_PATH}/lib/lwip)
 set(TARGET_FILES    
     ${TARGET_NAME}.c
     ${LWIP_PATH}/src/apps/lwiperf/lwiperf.c
@@ -8,7 +8,7 @@ set(TARGET_FILES
 add_executable(${TARGET_NAME} ${TARGET_FILES})
 
 # This is required to include lwipopts.h
-target_include_directories(lwip INTERFACE        
+target_include_directories(pico_lwip INTERFACE        
         ${PORT_DIR}/lwip
         )
 
@@ -18,7 +18,6 @@ target_link_libraries(${TARGET_NAME} PRIVATE
         hardware_dma
         ETHERNET_FILES
         IOLIBRARY_FILES
-        lwip
         LWIP_FILES
         )
 

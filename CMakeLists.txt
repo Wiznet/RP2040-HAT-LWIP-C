@@ -7,15 +7,9 @@ if(NOT DEFINED PICO_SDK_PATH)
     message(STATUS "PICO_SDK_PATH = ${PICO_SDK_PATH}")
 endif()
 
-# Pull in EXTRAS (must be before project)
-if(NOT DEFINED PICO_EXTRAS_PATH)
-    set(PICO_EXTRAS_PATH ${CMAKE_SOURCE_DIR}/libraries/pico-extras)
-    message(STATUS "PICO_EXTRAS_PATH = ${PICO_EXTRAS_PATH}")
-endif()
 
 include(rp2040_hat_lwip_c-patch.cmake)
 include(pico_sdk_import.cmake)
-include(pico_extras_import.cmake)
 include(rp2040_hat_lwip_c_sdk_version.cmake)
 
 # Set project name

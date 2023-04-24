@@ -5,7 +5,7 @@ add_executable(${TARGET_NAME}
         )
 
 # This is required to include lwipopts.h
-target_include_directories(lwip INTERFACE        
+target_include_directories(pico_lwip INTERFACE        
         ${PORT_DIR}/lwip
         )
 
@@ -15,7 +15,6 @@ target_link_libraries(${TARGET_NAME} PRIVATE
         hardware_dma
         ETHERNET_FILES
         IOLIBRARY_FILES
-        lwip
         LWIP_FILES
         )
 
