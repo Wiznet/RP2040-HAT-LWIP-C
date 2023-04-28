@@ -60,11 +60,24 @@ IP4_ADDR(&g_mask, 255, 255, 255, 0);
 IP4_ADDR(&g_gateway, 192, 168, 11, 1);
 ```
 
-3. Setup loopback configuration in 'tcp_echoserver.h' in 'RP2040-HAT-LWIP-C/examples/loopback/tcp_echoserver/' directory.
+3. Allows users to choose between echoserver mode and echoclient mode.
+
+- Setup loopback configuration in 'tcp_echoserver.c' in 'RP2040-HAT-LWIP-C/examples/loopback/tcp_echoserver/' directory.
 
 ```cpp
-/* Port */
+/* Source Port */
 #define PORT_LOOPBACK 5001
+```
+
+- Setup loopback configuration in 'tcp_echoclient.c' in 'RP2040-HAT-LWIP-C/examples/loopback/tcp_echoclient/' directory.
+
+```c
+/* Source Port */
+#define PORT_LOOPBACK 5001
+
+/* Destination IP address & port */
+static u8_t dest_ip[4] = {192, 168, 11, 74};
+static u16_t dest_port = 5000;
 ```
 
 
@@ -75,35 +88,54 @@ IP4_ADDR(&g_gateway, 192, 168, 11, 1);
 
 2. When the build is completed, 'w5x00_loopback.uf2' is generated in 'RP2040-HAT-LWIP-C/build/examples/loopback/' directory.
 
+3. While pressing the BOOTSEL button of Raspberry Pi Pico, W5100S-EVB-Pico or W5500-EVB-Pico power on the board, the USB mass storage 'RPI-RP2' is automatically mounted.
+
+![][link-raspberry_pi_pico_usb_mass_storage]
+
+4. Drag and drop 'w5x00_loopback.uf2' onto the USB mass storage device 'RPI-RP2'.
+
 
 
 ## Step 5: Upload and Run
 
-1. While pressing the BOOTSEL button of Raspberry Pi Pico, W5100S-EVB-Pico or W5500-EVB-Pico power on the board, the USB mass storage 'RPI-RP2' is automatically mounted.
+**TCP Server mode**
 
-![][link-raspberry_pi_pico_usb_mass_storage]
-
-2. Drag and drop 'w5x00_loopback.uf2' onto the USB mass storage device 'RPI-RP2'.
-
-3. Connect to the serial COM port of Raspberry Pi Pico, W5100S-EVB-Pico or W5500-EVB-Pico with Tera Term.
+1. Connect to the serial COM port of Raspberry Pi Pico, W5100S-EVB-Pico or W5500-EVB-Pico with Tera Term.
 
 ![][link-connect_to_serial_com_port]
 
-4. Reset your board.
+2. Reset your board.
 
-5. If the Loopback example works normally on Raspberry Pi Pico, W5100S-EVB-Pico or W5500-EVB-Pico, you can see the IP of Raspberry Pi Pico, W5100S-EVB-Pico or W5500-EVB-Pico and the loopback server is open.
+3. If the Loopback example works normally on Raspberry Pi Pico, W5100S-EVB-Pico or W5500-EVB-Pico, you can see the IP of Raspberry Pi Pico, W5100S-EVB-Pico or W5500-EVB-Pico and the loopback server is open.
 
 ![][link-see_network_information_of_raspberry_pi_pico_and_open_loopback_server]
 
-6. Connect to the open loopback server using Hercules TCP client. When connecting to the loopback server, you need to enter is the IP that was configured in Step 3, the port is 5001 by default.
+4. Connect to the open loopback server using Hercules TCP client. When connecting to the loopback server, you need to enter is the IP that was configured in Step 3, the port is 5001 by default.
 
 ![][link-connect_to_loopback_server_using_hercules_tcp_client_1]
 
-7. Once connected if you send data to the loopback server, you should be able to receive back the sent message.
+5. Once connected if you send data to the loopback server, you should be able to receive back the sent message.
 
 ![][link-receive_back_sent_message]
 
+**TCP Client mode**
 
+1. Connect to the serial COM port of Raspberry Pi Pico, W5100S-EVB-Pico or W5500-EVB-Pico with Tera Term.
+
+![][link-connect_to_serial_com_port]
+
+2. Reset your board.
+3. Open Hercules and set the port for the W5100S-EVB-Pico or W5500-EVB-Pico to connect to 5000.
+
+![][link-hercules_server_open]
+
+4. If the W5100S-EVB-Pico or W5500-EVB-Pico works properly, you should see it connect to the server.
+
+![][link-lwip_client_connect]
+
+5. Once connected if you send data to the loopback client, you should be able to receive back the sent message.
+
+![][link-client_echo_data]
 
 <!--
 Link
@@ -116,3 +148,6 @@ Link
 [link-see_network_information_of_raspberry_pi_pico_and_open_loopback_server]: https://github.com/Wiznet/RP2040-HAT-LWIP-C/blob/main/static/images/loopback/see_network_information_of_raspberry_pi_pico_and_open_loopback_server.png
 [link-connect_to_loopback_server_using_hercules_tcp_client_1]: https://github.com/Wiznet/RP2040-HAT-LWIP-C/blob/main/static/images/loopback/connect_to_loopback_server_using_hercules_tcp_client.png
 [link-receive_back_sent_message]: https://github.com/Wiznet/RP2040-HAT-LWIP-C/blob/main/static/images/loopback/receive_back_sent_message.png
+[link-hercules_server_open]:https://github.com/Wiznet/RP2040-HAT-LWIP-C/blob/main/static/images/loopback/hercules_server_open.png
+[link-lwip_client_connect]:https://github.com/Wiznet/RP2040-HAT-LWIP-C/blob/main/static/images/loopback/https://github.com/Wiznet/RP2040-HAT-LWIP-C/blob/main/static/images/loopback/hercules_server_open.png.png
+[link-client_echo_data]:https://github.com/Wiznet/RP2040-HAT-LWIP-C/blob/main/static/images/loopback/client_echo_data.png

@@ -3,6 +3,7 @@ set(LWIP_PATH ${PICO_SDK_PATH}/lib/lwip)
 set(TARGET_FILES    
     w5x00_loopback.c
     ${CMAKE_CURRENT_SOURCE_DIR}/tcp_echoserver/tcp_echoserver.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/tcp_echoclient/tcp_echoclient.c
     )
 
 add_executable(${TARGET_NAME} ${TARGET_FILES})
@@ -10,6 +11,7 @@ add_executable(${TARGET_NAME} ${TARGET_FILES})
 target_include_directories(w5x00_loopback PUBLIC
         ${LWIP_PATH}/src/include
         ${CMAKE_CURRENT_SOURCE_DIR}/tcp_echoserver
+        ${CMAKE_CURRENT_SOURCE_DIR}/tcp_echoclient
         )
 
 # This is required to include lwipopts.h

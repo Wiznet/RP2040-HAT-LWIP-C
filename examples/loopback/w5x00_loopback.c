@@ -26,6 +26,7 @@
 #include "lwip/etharp.h"
 
 #include "tcp_echoserver.h"
+#include "tcp_echoclient.h"
 
 /**
  * ----------------------------------------------------------------------------------------------------
@@ -40,6 +41,10 @@
 
 /* Port */
 #define PORT_LWIPERF 5001
+
+/* TCP mode */
+//#define SERVER
+#define CLIENT
 
 /**
  * ----------------------------------------------------------------------------------------------------
@@ -122,9 +127,13 @@ int main()
     netif_set_link_up(&g_netif);
     netif_set_up(&g_netif);
 
-    // Start tcp echoserver
+#ifdef SERVER
+    // Start tcp echo server
     tcp_echoserver_init();
-
+#else defined (CLIENT)
+    // Start tcp echo client
+    tcp_echoclient_init();
+#endif
     /* Infinite loop */
     while (1)
     {
